@@ -11,7 +11,7 @@ router.get("/folders/parts/:partID", async (req, res) => {
     const filePath = isWin
       ? `\\\\gl-fs01\\GLIParts\\${partID}\\`
       : `/Volumes/GLIParts/${partID}/`;
-    const execPath = isWin ? `start "" ${filePath}` : `open ${filePath}`;
+    const execPath = isWin ? `start "" "${filePath}"` : `open ${filePath}`;
 
     if (fs.existsSync(filePath)) {
       // Do something
